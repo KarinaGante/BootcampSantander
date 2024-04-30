@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 ## ♨️ Bootcamp Santander 2024 ♨️ 
 
@@ -33,4 +33,4 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Alike&weight=800&size=25&duration=3000&pause=1000&color=F7F7F7&random=false&width=435&lines=%E2%99%A8%EF%B8%8F+Bootcamp+Santander+2024!+%E2%99%A8%EF%B8%8F)](https://git.io/typing-svg)<br><br>
 
 Feito com 💜 por Karina.<br><br><br>
-</center>
+</div>
