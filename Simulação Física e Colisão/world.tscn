@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpqkm8job172u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bptg"]
+size = Vector2(1152.5, 63)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0cmky"]
+friction = 0.2
+bounce = 0.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfslw"]
+size = Vector2(64, 64)
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 648.0
+color = Color(0.0768, 0.15072, 0.48, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(575.75, 616.5)
+shape = SubResource("RectangleShape2D_6bptg")
+
+[node name="Floor" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -576.75
+offset_top = -31.5
+offset_right = 576.25
+offset_bottom = 30.5
+color = Color(1, 0.594, 0.42, 1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(137, 26)
+rotation = -0.563041
+physics_material_override = SubResource("PhysicsMaterial_0cmky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_yfslw")
+
+[node name="Box" type="ColorRect" parent="RigidBody2D/CollisionShape2D"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0.63, 0.32865, 0.1134, 1)
