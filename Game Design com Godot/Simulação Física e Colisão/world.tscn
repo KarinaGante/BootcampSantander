@@ -26,19 +26,19 @@ offset_right = 576.25
 offset_bottom = 30.5
 color = Color(1, 0.594, 0.42, 1)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("1_kloma")]
+[node name="Regular Box" parent="." instance=ExtResource("1_kloma")]
 
-[node name="regularBox" parent="." instance=ExtResource("1_kloma")]
+[node name="Regular Box2" parent="." instance=ExtResource("1_kloma")]
 position = Vector2(279, 349)
 
-[node name="regularBox2" parent="." instance=ExtResource("1_kloma")]
+[node name="Regular Box3" parent="." instance=ExtResource("1_kloma")]
 position = Vector2(614, 461)
 
-[node name="regularBox3" parent="." instance=ExtResource("1_kloma")]
+[node name="Regular Box4" parent="." instance=ExtResource("1_kloma")]
 position = Vector2(842, 257)
 
-[node name="bouncyBox" parent="." instance=ExtResource("2_c7k2v")]
+[node name="Bouncy Box" parent="." instance=ExtResource("2_c7k2v")]
 position = Vector2(318, 94)
 
-[node name="bouncyBox2" parent="." instance=ExtResource("2_c7k2v")]
+[node name="Bouncy Box2" parent="." instance=ExtResource("2_c7k2v")]
 position = Vector2(611, 344)
