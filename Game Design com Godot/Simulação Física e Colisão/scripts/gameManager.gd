@@ -1,5 +1,7 @@
 extends Node
 
+@export var objectTemplates: Array[PackedScene]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,5 +17,11 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
 			if event.pressed:
-					print(event)
-	pass	
+				spawnObject(event.position)
+	
+func spawnObject(position: Vector2) -> void:
+	var index: int = randi_range(0, objectTemplates.size() -1)
+	var objectTemplate = objectTemplates[index]
+	var object: RigidBody2D = objectTemplate.instantiate()
+	object.position = position
+	add_child(object)

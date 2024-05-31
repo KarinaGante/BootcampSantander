@@ -11,6 +11,7 @@ size = Vector2(1152.5, 63)
 
 [node name="Game Manager" type="Node" parent="."]
 script = ExtResource("1_08idb")
+objectTemplates = Array[PackedScene]([ExtResource("2_c7k2v"), ExtResource("1_kloma")])
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1150.0
