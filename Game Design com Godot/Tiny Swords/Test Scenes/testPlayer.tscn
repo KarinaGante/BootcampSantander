@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp0fh17ej8un8"]
+
+[ext_resource type="Texture2D" uid="uid://byysaalysnf57" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Purple/Torch_Purple.png" id="1_bcnmn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u54tt"]
+line_spacing = 78.0
+
+[node name="TestPlayer" type="Node2D"]
+
+[node name="TorchPurple" type="Sprite2D" parent="."]
+position = Vector2(699, 359)
+texture = ExtResource("1_bcnmn")
+
+[node name="Label2" type="Label" parent="TorchPurple"]
+offset_left = 482.0
+offset_top = -195.0
+offset_right = 521.0
+offset_bottom = -172.0
+scale = Vector2(1.64265, 1.5531)
+text = "run"
+uppercase = true
+
+[node name="Label" type="Label" parent="TorchPurple"]
+offset_left = 648.0
+offset_top = -403.0
+offset_right = 687.0
+offset_bottom = -380.0
+scale = Vector2(1.58917, 1.4307)
+text = "idle"
+uppercase = true
+
+[node name="Label3" type="Label" parent="TorchPurple"]
+offset_left = 505.0
+offset_top = 6.0
+offset_right = 553.0
+offset_bottom = 29.0
+scale = Vector2(1.60786, 1.60094)
+text = "side"
+uppercase = true
+
+[node name="Label4" type="Label" parent="TorchPurple"]
+offset_left = 489.0
+offset_top = 203.0
+offset_right = 542.0
+offset_bottom = 226.0
+scale = Vector2(1.45831, 1.50612)
+text = "down"
+uppercase = true
+
+[node name="Label5" type="Label" parent="TorchPurple"]
+offset_left = 489.0
+offset_top = 372.0
+offset_right = 542.0
+offset_bottom = 395.0
+scale = Vector2(1.43332, 1.46023)
+text = "up"
+uppercase = true
+
+[node name="Label6" type="Label" parent="TorchPurple"]
+offset_left = -613.0
+offset_top = -478.0
+offset_right = -37.0
+offset_bottom = -455.0
+scale = Vector2(2.10275, 1.93426)
+text = "0                        1                  2                    3                   4                     5                    6 "
+uppercase = true
+
+[node name="Label7" type="Label" parent="TorchPurple"]
+offset_left = -660.0
+offset_top = -403.0
+offset_right = -643.0
+offset_bottom = 33.0
+scale = Vector2(2.10275, 1.93426)
+text = "0 1 2 3 4"
+label_settings = SubResource("LabelSettings_u54tt")
+autowrap_mode = 2
+uppercase = true
