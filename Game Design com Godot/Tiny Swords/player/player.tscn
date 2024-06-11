@@ -64,6 +64,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_xomqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
