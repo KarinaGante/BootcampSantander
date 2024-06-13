@@ -1,13 +1,30 @@
 <div align="center">
 
-## <img src="./assets/santander-logo.png" width="25px"> Bootcamp Santander 2024 <img src="./assets/santander-logo.png" width="25px"> 
+## <img src="./md-icons/santander-logo.png" width="25px"> Bootcamp Santander 2024 <img src="./md-icons/santander-logo.png" width="25px"> 
 
-<img src="./assets/dio-logo.png" width="120px"> <br>
+<img src="./md-icons/dio-logo.png" width="120px"> <br>
 
 💾 Repositório para guardar atividades práticas do Bootcamp.
 
 
 #### Criando jogos com Godot do Santander Bootcamp 2024! Aprenda lógica de programação enquanto desenvolve suas habilidades com scripts como JavaScript e GDscript e construa na prática o seu primeiro jogo em 2D na engine Godot.
+
+## 🗺️ Preview dos Projetos 🗺️
+
+⚔️ Tiny Swords: Estilo Vampire Survivor; Rotação de Sprite, Animated Sprites, Inimigos com IA, Sistema de Pontuação, Ataque, Vida, Câmera com outra Perspectiva.
+
+<img src="./md-icons/prj-tinySwords.gif" width="620px"> <br>
+
+🏗️ Industrial Platformer: Câmera, Sprite2D, Câmera, Controles, Mapa, Camadas e Parallax.
+
+<img src="./md-icons/prj-industrialPlatformer.gif" width="620px"> <br>
+
+
+🧲 Simulação Física: Testando colisão e comportamento ao criar caixas com diferentes propriedades.
+
+<img src="./md-icons/prj-physics.gif" width="620px"> <br>
+
+
 
 ## 📚 Grade 📚
 
