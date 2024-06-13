@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bujh04vn4qhhu"]
+[gd_scene load_steps=15 format=3 uid="uid://bujh04vn4qhhu"]
 
 [ext_resource type="Texture2D" uid="uid://iuh7kh1q14ha" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_ktpo5"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_xomqa"]
@@ -249,6 +249,9 @@ _data = {
 "run": SubResource("Animation_xxf8a")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g67bq"]
+radius = 100.005
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_xomqa")
@@ -269,3 +272,9 @@ libraries = {
 "": SubResource("AnimationLibrary_wqfk2")
 }
 autoplay = "idle"
+
+[node name="SwordArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
+shape = SubResource("CircleShape2D_g67bq")
+debug_color = Color(0.752941, 0.309804, 0.847059, 0)
