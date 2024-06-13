@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp0fh17ej8un8"]
+[gd_scene load_steps=5 format=3 uid="uid://cp0fh17ej8un8"]
 
 [ext_resource type="Texture2D" uid="uid://iuh7kh1q14ha" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_1ae82"]
 [ext_resource type="PackedScene" uid="uid://bujh04vn4qhhu" path="res://player/player.tscn" id="2_4hiuu"]
+[ext_resource type="PackedScene" uid="uid://cmt7a3crg5bll" path="res://enemies/pawn.tscn" id="3_ynyfj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u54tt"]
 line_spacing = 78.0
@@ -106,3 +107,9 @@ autowrap_mode = 2
 uppercase = true
 
 [node name="Player" parent="." instance=ExtResource("2_4hiuu")]
+
+[node name="Pawn" parent="." instance=ExtResource("3_ynyfj")]
+position = Vector2(163, 82)
+
+[node name="Pawn2" parent="." instance=ExtResource("3_ynyfj")]
+position = Vector2(-26, 178)
