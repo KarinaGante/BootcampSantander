@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmt7a3crg5bll"]
+
+[ext_resource type="Texture2D" uid="uid://b85efdhhkrj41" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_c2vnf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6m7p"]
+radius = 18.0
+height = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuskc"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfsda"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4age"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mtfv"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1it5v"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjgsk"]
+atlas = ExtResource("1_c2vnf")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q60il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuskc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfsda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4age")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mtfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1it5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjgsk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Pawn" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -26)
+shape = SubResource("CapsuleShape2D_i6m7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -26)
+sprite_frames = SubResource("SpriteFrames_q60il")
+autoplay = "default"
+frame_progress = 0.835565
