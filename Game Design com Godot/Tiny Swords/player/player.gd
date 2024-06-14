@@ -25,7 +25,9 @@ func _process(delta: float) -> void:
 		attack() 
 	# processar animação e rotação de sprite
 	playRunIdleAnimation()
-	flipSprite()
+	
+	if not isAttacking:
+		flipSprite()
 
 # a funcao process atualiza em uma velocidade que depende do hardware
 # a funcao physics process vai atualizar com um valor fixo independente do harware (+ confiavel)
@@ -106,4 +108,15 @@ func damageToEnemies() -> void:
 	for body in bodies:
 		if body.is_in_group("enemies"):
 			var enemy: Enemy = body
-			enemy.damage(swordDamage)
+			
+			var directionToEnemy = (enemy.position - position).normalized()
+			var attackDirection: Vector2
+			if sprite.flip_h:
+				attackDirection = Vector2.LEFT
+			else:
+				attackDirection = Vector2.RIGHT
+			
+			var dotProduct = directionToEnemy.dot(attackDirection)
+			
+			if dotProduct >= 0.3:
+				enemy.damage(swordDamage)
