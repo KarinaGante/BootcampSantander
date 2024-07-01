@@ -19,5 +19,3 @@ position = Vector2(92, 501)
 
 [node name="Player" parent="." instance=ExtResource("2_1snph")]
 position = Vector2(424, 294)
-speed = 3
-swordDamage = 2
