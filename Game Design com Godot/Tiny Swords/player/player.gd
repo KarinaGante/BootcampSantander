@@ -1,8 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed = 3
 @export var swordDamage: int = 2
 @export var health: int = 100
+@export var maxHealth: int = 100
 @export var deathPrefab: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -166,3 +168,7 @@ func die() -> void:
 		get_parent().add_child(deathObject)
 		
 	queue_free() # destruindo entidade
+
+func heal(amount: int) -> int:
+	health += amount
+	return health
