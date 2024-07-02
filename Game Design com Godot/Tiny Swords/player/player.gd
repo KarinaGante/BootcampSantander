@@ -2,16 +2,20 @@ extends CharacterBody2D
 
 @export var speed = 3
 @export var swordDamage: int = 2
+@export var health: int = 100
+@export var deathPrefab: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var swordArea: Area2D = $SwordArea
+@onready var hitboxArea: Area2D = $HitboxArea
 
 var inputVector: Vector2 = Vector2(0, 0)
 var isRunning: bool = false
 var wasRunning: bool = false
 var isAttacking: bool = false
 var attackCooldown: float = 0.0
+var hitboxCooldown: float = 0.0
 
 func _process(delta: float) -> void: 
 	GameManager.playerPosition = position
@@ -28,6 +32,9 @@ func _process(delta: float) -> void:
 	
 	if not isAttacking:
 		flipSprite()
+	
+	#processar dano
+	updateHitboxDetection(delta)
 
 # a funcao process atualiza em uma velocidade que depende do hardware
 # a funcao physics process vai atualizar com um valor fixo independente do harware (+ confiavel)
@@ -120,3 +127,42 @@ func damageToEnemies() -> void:
 			
 			if dotProduct >= 0.3:
 				enemy.damage(swordDamage)
+
+func updateHitboxDetection(delta: float) -> void:
+	# frequencia de dano
+	hitboxCooldown -= delta
+	if hitboxCooldown > 0: return
+	hitboxCooldown = 0.5
+	# detectar inimigos
+	var bodies = hitboxArea.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemies"):
+			var enemy: Enemy = body
+			var damageAmount = 1
+			damage(damageAmount)
+
+func damage(amount: int) -> void:
+	if health <= 0: return
+	
+	health -= amount
+	
+	# piscar inimigo (node)
+	modulate = Color.RED
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
+	
+	# tween = abreviacao de between (entre coisas) no sentido de A até B
+	
+	# processar morte
+	if health <= 0:
+		die()
+
+func die() -> void:
+	if deathPrefab:
+		var deathObject = deathPrefab.instantiate()
+		deathObject.position = position
+		get_parent().add_child(deathObject)
+		
+	queue_free() # destruindo entidade
