@@ -1,11 +1,24 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Movement")
 @export var speed = 3
+
+@export_category("Sword")
 @export var swordDamage: int = 2
+
+@export_category("Ritual")
+@export var ritualDamage: int = 1
+@export var ritualInterval: float = 30.0
+@export var ritualScene: PackedScene
+
+
+@export_category("Life")
 @export var health: int = 100
 @export var maxHealth: int = 100
 @export var deathPrefab: PackedScene
+
+
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
@@ -18,6 +31,7 @@ var wasRunning: bool = false
 var isAttacking: bool = false
 var attackCooldown: float = 0.0
 var hitboxCooldown: float = 0.0
+var ritualCooldown: float = 0.0
 
 func _process(delta: float) -> void: 
 	GameManager.playerPosition = position
@@ -35,8 +49,11 @@ func _process(delta: float) -> void:
 	if not isAttacking:
 		flipSprite()
 	
-	#processar dano
+	# processar dano
 	updateHitboxDetection(delta)
+	
+	# ritual(super poder)
+	updateRitual(delta)
 
 # a funcao process atualiza em uma velocidade que depende do hardware
 # a funcao physics process vai atualizar com um valor fixo independente do harware (+ confiavel)
@@ -50,6 +67,19 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = lerp(velocity, targetVelocity, 0.05)
 	move_and_slide()
+
+func updateRitual(delta) -> void:
+	# atualiza temporizador
+	ritualCooldown -= delta
+	if ritualCooldown > 0: return
+	
+	# reset temp
+	ritualCooldown = ritualInterval
+	
+	# criar ritual
+	var ritual = ritualScene.instantiate()
+	ritual.damageAmount = ritualDamage
+	add_child(ritual)
 
 func readInput() -> void:
 	# obter input vector
