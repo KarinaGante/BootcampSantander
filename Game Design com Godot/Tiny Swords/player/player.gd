@@ -12,18 +12,16 @@ extends CharacterBody2D
 @export var ritualInterval: float = 30.0
 @export var ritualScene: PackedScene
 
-
 @export_category("Life")
 @export var health: int = 100
 @export var maxHealth: int = 100
 @export var deathPrefab: PackedScene
 
-
-
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var swordArea: Area2D = $SwordArea
 @onready var hitboxArea: Area2D = $HitboxArea
+@onready var healthProgressBar: ProgressBar = $HealthProgressBar
 
 var inputVector: Vector2 = Vector2(0, 0)
 var isRunning: bool = false
@@ -54,6 +52,10 @@ func _process(delta: float) -> void:
 	
 	# ritual(super poder)
 	updateRitual(delta)
+	
+	# atualizar health progress bar
+	healthProgressBar.max_value = maxHealth
+	healthProgressBar.value = health
 
 # a funcao process atualiza em uma velocidade que depende do hardware
 # a funcao physics process vai atualizar com um valor fixo independente do harware (+ confiavel)

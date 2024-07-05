@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6q5lywvqjr4r"]
+[gd_scene load_steps=7 format=3 uid="uid://6q5lywvqjr4r"]
 
 [ext_resource type="PackedScene" uid="uid://bujh04vn4qhhu" path="res://player/player.tscn" id="1_w0ian"]
 [ext_resource type="Texture2D" uid="uid://cpw63gvi2w5tq" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="2_2pkue"]
+[ext_resource type="PackedScene" uid="uid://cmt7a3crg5bll" path="res://enemies/pawn.tscn" id="3_v83tl"]
+[ext_resource type="PackedScene" uid="uid://ci4n3c3u7oyar" path="res://enemies/goblin.tscn" id="4_fuwvt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyh0j"]
 texture = ExtResource("2_2pkue")
@@ -63,3 +65,10 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50,000 Gold"
 label_settings = SubResource("LabelSettings_1glvo")
+
+[node name="Pawn" parent="." instance=ExtResource("3_v83tl")]
+position = Vector2(671, 261)
+
+[node name="Goblin" parent="." instance=ExtResource("4_fuwvt")]
+position = Vector2(739, 159)
+metadata/_edit_group_ = true
