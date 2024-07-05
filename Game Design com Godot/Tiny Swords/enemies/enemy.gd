@@ -4,6 +4,13 @@ extends Node2D
 @export var health: int = 10
 @export var deathPrefab: PackedScene
 
+@onready var damageDigitMarker = $DamageDigitMarker
+
+var digitDamagePrefab: PackedScene
+
+func _ready():
+	digitDamagePrefab = preload("res://misc/damageDigit.tscn")
+
 func damage(amount: int) -> void:
 	health -= amount
 	
@@ -13,8 +20,18 @@ func damage(amount: int) -> void:
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
-	
 	# tween = abreviacao de between (entre coisas) no sentido de A até B
+	
+	# criar damage digit
+	var damageDigit = digitDamagePrefab.instantiate()
+	damageDigit.value = amount
+	
+	if damageDigitMarker:
+		damageDigit.global_position = damageDigitMarker.global_position
+	else:
+		damageDigit.global_position = global_position
+	
+	get_parent().add_child(damageDigit)
 	
 	# processar morte
 	if health <= 0:

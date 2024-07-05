@@ -79,3 +79,6 @@ frame_progress = 0.0687956
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("4_fi4yi")
 speed = 1.8
+
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+position = Vector2(0, -48)
