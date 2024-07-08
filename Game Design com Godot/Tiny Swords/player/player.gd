@@ -203,4 +203,7 @@ func die() -> void:
 
 func heal(amount: int) -> int:
 	health += amount
+	if health > maxHealth:
+		health = maxHealth
+	print("Player recebeu cura de ", amount, ". A vida total é de ", health, "/", maxHealth)
 	return health

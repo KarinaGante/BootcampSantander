@@ -263,7 +263,7 @@ bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itfqh"]
 bg_color = Color(0.83, 0, 0, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_xomqa")
 ritualDamage = 2
