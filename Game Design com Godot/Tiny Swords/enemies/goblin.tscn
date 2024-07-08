@@ -56,8 +56,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6m7p"]
-radius = 25.0
-height = 66.0
+radius = 9.83839
+height = 45.9165
 
 [node name="Goblin" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -6)
@@ -75,7 +75,8 @@ frame = 2
 frame_progress = 0.345147
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -26)
+position = Vector2(0.65594, -4.59158)
+rotation = 1.57134
 shape = SubResource("CapsuleShape2D_i6m7p")
 
 [node name="FollowPlayer" type="Node" parent="."]
