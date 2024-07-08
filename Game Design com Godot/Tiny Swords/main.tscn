@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpkv0hkgk1hky"]
+[gd_scene load_steps=22 format=3 uid="uid://cpkv0hkgk1hky"]
 
 [ext_resource type="PackedScene" uid="uid://dkbe6famom5xx" path="res://systems/mobSpawner.tscn" id="1_8x3vw"]
 [ext_resource type="PackedScene" uid="uid://bujh04vn4qhhu" path="res://player/player.tscn" id="2_u33r2"]
@@ -83,6 +83,18 @@ sources/3 = SubResource("TileSetAtlasSource_decpg")
 sources/4 = SubResource("TileSetAtlasSource_4a0ej")
 sources/5 = SubResource("TileSetAtlasSource_oavdc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xjlg"]
+size = Vector2(2136, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yirwr"]
+size = Vector2(1451, 80.0102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn35t"]
+size = Vector2(1451, 80.0102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcuct"]
+size = Vector2(2136, 78)
+
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 
@@ -99,6 +111,30 @@ layer_2/name = "Details"
 layer_2/modulate = Color(1, 1, 1, 0.729412)
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-327688, 1, 0, 589816, 262144, 0, -131079, 262144, 0, -327686, 262144, 0, 393211, 262144, 0, 524283, 262144, 0, -327684, 262144, 0, -131075, 262144, 0, 917501, 262144, 0, 983037, 262144, 0, 720894, 262144, 0, 1048574, 262144, 0, -393216, 262144, 0, 196608, 262144, 0, 917505, 262144, 0, 131074, 262144, 0, 524290, 262144, 0, 589826, 262144, 0, 851970, 262144, 0, 458755, 262144, 0, 131076, 262144, 0, 655364, 262144, 0, -327675, 262144, 0, -262139, 3, 0, 5, 262144, 0, -327673, 262144, 0, 196615, 262144, 0, 917511, 262144, 0, 786440, 262144, 0, 65545, 262144, 0, 393225, 262144, 0, 983049, 262144, 0, 131083, 262144, 0, 917515, 262144, 0, 589836, 1, 0, -262131, 262144, 0, 786445, 262144, 0, -131058, 262144, 0, 65550, 262144, 0, 327694, 262144, 0, 524303, 262144, 0, 917519, 262144, 0, 983055, 262144, 0, -327664, 262144, 0, 524304, 262144, 0, 786448, 262144, 0, 786449, 262144, 0, 524306, 262144, 0, 65555, 262144, 0, 327699, 262144, 0, 720915, 4, 0, 720916, 262144, 0, -262122, 262144, 0, 851991, 262144, 0, 917527, 262144, 0, 131068, 4, 0, 524287, 4, 0, 720900, 4, 0, 589829, 4, 0, 851975, 4, 0, 983048, 4, 0, -393207, 4, 0, 65551, 1, 0, 655377, 4, 0, 786450, 2, 0, 131091, 4, 0, 786451, 4, 0, -327660, 4, 0, 655382, 1, 0, -262151, 3, 0, 458745, 3, 0, 720889, 3, 0, 851961, 3, 0, 917504, 3, 0, -327678, 3, 0, 2, 3, 0, 327682, 3, 0, -131065, 3, 0, 65544, 3, 0, -196598, 3, 0, 131082, 3, 0, 655371, 3, 0, 917516, 3, 0, 65549, 3, 0, -65520, 3, 0, 393232, 2, 0, -131054, 3, 0, -65518, 3, 0, -65517, 3, 0, 786452, 3, 0, 65557, 3, 0, 851990, 3, 0, -262152, 2, 0, 65528, 2, 0, 262136, 2, 0, 393210, 2, 0, 196603, 2, 0, 524289, 2, 0, 786433, 1, 0, 393218, 2, 0, 393219, 2, 0, 6, 2, 0, -196601, 2, 0, -393204, 2, 0, -131060, 2, 0, -196595, 2, 0, 19, 2, 0, 327700, 2, 0, 458772, 2, 0, 655381, 2, 0, -8, 1, 0, -262150, 1, 0, 131066, 1, 0, 786427, 1, 0, 524285, 1, 0, -262144, 1, 0, 983043, 1, 0, 327685, 1, 0, 851977, 1, 0, 786442, 1, 0, -65525, 1, 0, 524299, 1, 0, 720907, 1, 0, 524300, 1, 0, -262130, 1, 0, 327695, 1, 0, 327696, 1, 0, 524305, 1, 0, 196627, 1, 0, 851987, 1, 0, 393236, 1, 0, -196600, 1, 0, 8, 1, 0, 1048571, 1, 0, 131088, 1, 0, 131073, 1, 0, 21, 1, 0, -262128, 1, 0, 131094, 1, 0, 262167, 1, 0, 983061, 1, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(516, -410)
+shape = SubResource("RectangleShape2D_4xjlg")
+debug_color = Color(0.823539, 0.394769, 0.167904, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-542.005, 311.506)
+rotation = -1.57114
+shape = SubResource("RectangleShape2D_yirwr")
+debug_color = Color(0.823539, 0.394769, 0.167904, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1566, 320)
+rotation = -1.57114
+shape = SubResource("RectangleShape2D_qn35t")
+debug_color = Color(0.823539, 0.394769, 0.167904, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(508, 1049)
+shape = SubResource("RectangleShape2D_dcuct")
+debug_color = Color(0.823539, 0.394769, 0.167904, 0.42)
 
 [node name="Player" parent="." instance=ExtResource("2_u33r2")]
 position = Vector2(549, 257)

@@ -12,6 +12,18 @@ func _process(delta: float):
 	cooldown -= delta
 	if cooldown > 0: return
 	
+	# checar se o ponto é valido
+	var point = getPoint()
+	
+	# perguntar pro jogo (global) se esse ponto (x, y) tem colisao
+	var worldState = get_world_2d().direct_space_state
+	
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = point
+	
+	var result: Array = worldState.intersect_point(parameters, 1)
+	if not result.is_empty(): return
+	
 	# frequencia
 	var interval = 60.0 / mobsPerMinute
 	cooldown = interval
@@ -20,7 +32,7 @@ func _process(delta: float):
 	var index = randi_range(0, creatures.size() - 1)
 	var creatureScene = creatures[index]
 	var creature = creatureScene.instantiate()
-	creature.global_position = getPoint()
+	creature.global_position = point
 	get_parent().add_child(creature)
 
 func getPoint() -> Vector2:
