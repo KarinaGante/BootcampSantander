@@ -1,7 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqk7kj8du0jx3"]
+[gd_scene load_steps=10 format=3 uid="uid://cqk7kj8du0jx3"]
 
 [ext_resource type="Texture2D" uid="uid://cpw63gvi2w5tq" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="1_4rsxu"]
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_5pdi4"]
+[ext_resource type="Texture2D" uid="uid://duouhhmykurtv" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/M_Idle_(NoShadow).png" id="3_73um0"]
+
+[sub_resource type="SystemFont" id="SystemFont_spmy6"]
+font_names = PackedStringArray("BERNIER™ SHADE")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vme6m"]
+font = SubResource("SystemFont_spmy6")
+font_size = 36
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyh0j"]
 texture = ExtResource("1_4rsxu")
@@ -13,9 +21,17 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(32, 48, 128, 128)
 
+[sub_resource type="SystemFont" id="SystemFont_brgbv"]
+font_names = PackedStringArray("BERNIER™ SHADE")
+
 [sub_resource type="LabelSettings" id="LabelSettings_1glvo"]
-font_size = 20
+font = SubResource("SystemFont_brgbv")
+font_size = 36
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht3jk"]
+atlas = ExtResource("3_73um0")
+region = Rect2(40, 56, 56, 40)
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_5pdi4")
@@ -25,11 +41,13 @@ unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -32.0
-offset_right = 34.0
-offset_bottom = 36.0
+offset_left = -33.0
+offset_top = 7.0
+offset_right = 35.0
+offset_bottom = 46.0
 grow_horizontal = 2
 text = "08:50"
+label_settings = SubResource("LabelSettings_vme6m")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -37,40 +55,34 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -285.0
-offset_top = 8.0
-offset_right = -10.0
-offset_bottom = 82.0
+offset_left = -176.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = 85.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_yyh0j")
 
 [node name="MeatLabel" type="Label" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 30.0
-offset_top = -30.0
-offset_right = 108.0
-offset_bottom = -2.0
-grow_vertical = 2
-text = "50 Meat"
-label_settings = SubResource("LabelSettings_1glvo")
-
-[node name="GoldLabel" type="Label" parent="Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -29.0
-offset_right = -32.0
-offset_bottom = -1.0
+offset_left = -77.0
+offset_top = 3.0
+offset_right = -34.0
+offset_bottom = 42.0
 grow_horizontal = 0
-grow_vertical = 2
-text = "50,000 Gold"
+text = "1"
 label_settings = SubResource("LabelSettings_1glvo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 94.0
+offset_bottom = 43.0
+scale = Vector2(0.856238, 0.856238)
+texture = SubResource("AtlasTexture_ht3jk")

@@ -2,9 +2,14 @@ extends CanvasLayer
 
 @onready var timerLabel = %TimerLabel
 @onready var meatLabel = %MeatLabel
-@onready var goldLabel = %GoldLabel
 
 var timeElapsed: float = 0.0
+var meatCounter: int = 0
+
+func _ready():
+	GameManager.player.meatCollected.connect(onMeatCollected)
+	# padroniza valor inicial em 0
+	meatLabel.text = str(meatCounter)
 
 func _process(delta):
 	# update timer
@@ -16,4 +21,8 @@ func _process(delta):
 	var minutes: int  = timeElaspsedInSeconds / 60
 	# formatando o texto no label
 	timerLabel.text = "%02d:%02d" % [minutes, seconds]
-	
+
+func onMeatCollected(regenationValue: int) -> void:
+	# atualiza o contador do item coletado
+	meatCounter += 1
+	meatLabel.text = str(meatCounter)
