@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpkv0hkgk1hky"]
+[gd_scene load_steps=23 format=3 uid="uid://cpkv0hkgk1hky"]
 
 [ext_resource type="PackedScene" uid="uid://dkbe6famom5xx" path="res://systems/mobSpawner.tscn" id="1_8x3vw"]
 [ext_resource type="PackedScene" uid="uid://bujh04vn4qhhu" path="res://player/player.tscn" id="2_u33r2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cp43jfu4h4tb1" path="res://addons/Tiny Swords (Update 010)/Deco/05.png" id="6_rbgcg"]
 [ext_resource type="Texture2D" uid="uid://ceabk80ms606v" path="res://addons/Tiny Swords (Update 010)/Deco/08.png" id="7_j37lt"]
 [ext_resource type="Texture2D" uid="uid://bvlo8ojh2lsom" path="res://addons/Tiny Swords (Update 010)/Deco/11.png" id="8_gnbqb"]
+[ext_resource type="Script" path="res://systems/difficultySystem.gd" id="8_htqyw"]
 [ext_resource type="PackedScene" uid="uid://cwwm1fhkjddqq" path="res://misc/tree.tscn" id="10_17n2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0yvn"]
@@ -149,6 +150,13 @@ update_scale = false
 remote_path = NodePath("../../MobSpawner")
 update_rotation = false
 update_scale = false
+
+[node name="DifficultySystem" type="Node2D" parent="." node_paths=PackedStringArray("mobSpawner")]
+script = ExtResource("8_htqyw")
+mobSpawner = NodePath("../MobSpawner")
+initialSpawnRate = 30.0
+waveDuration = 40.0
+breakIntensity = 0.33
 
 [node name="MobSpawner" parent="." instance=ExtResource("1_8x3vw")]
 position = Vector2(549, 257)
