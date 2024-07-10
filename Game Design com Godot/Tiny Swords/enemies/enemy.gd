@@ -1,12 +1,17 @@
 class_name Enemy
 extends Node2D
 
+@export_category("Life")
 @export var health: int = 10
 @export var deathPrefab: PackedScene
+var digitDamagePrefab: PackedScene
+
+@export_category("Drops")
+@export var dropChance: float = 0.1
+@export var dropItems: Array[PackedScene]
+@export var dropChances: Array[float]
 
 @onready var damageDigitMarker = $DamageDigitMarker
-
-var digitDamagePrefab: PackedScene
 
 func _ready():
 	digitDamagePrefab = preload("res://misc/damageDigit.tscn")
@@ -38,9 +43,44 @@ func damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	# caveira da morte
 	if deathPrefab:
 		var deathObject = deathPrefab.instantiate()
 		deathObject.position = position
 		get_parent().add_child(deathObject)
-		
+
+	# drop
+	if randf() <= dropChance:
+		dropItem()
+	
+	# deletar obj
 	queue_free() # destruindo entidade
+
+func dropItem() -> void:
+	var drop = getRandomDropItem().instantiate()
+	drop.position = position
+	get_parent().add_child(drop)
+
+func getRandomDropItem() -> PackedScene:
+	# lista com 1 item
+	if dropItems.size() == 1:
+		return dropItems[0]
+	
+	# calcula chance maxima
+	var maxChance: float = 0.0
+	for dropChance in dropChances:
+		maxChance += dropChance
+	
+	# jogar dado
+	var randomValue = randf() * maxChance
+	
+	# girar roleta
+	var needle: float = 0.0
+	for i in dropItems.size():
+		var dropItem = dropItems[i]
+		var dropChance = dropChances[i] if i < dropChances.size() else 1
+		if randomValue <= dropChance + needle:
+			return dropItem
+		needle += dropChance
+
+	return dropItems[0]
