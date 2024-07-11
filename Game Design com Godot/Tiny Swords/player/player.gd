@@ -199,6 +199,8 @@ func damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	GameManager.endGame()
+	
 	if deathPrefab:
 		var deathObject = deathPrefab.instantiate()
 		deathObject.position = position

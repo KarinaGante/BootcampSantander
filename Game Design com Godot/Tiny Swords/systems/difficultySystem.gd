@@ -9,6 +9,10 @@ extends Node
 var time: float = 0.0
 
 func _process(delta):
+	# ignorar game over
+	if GameManager.isGameOver: return
+	
+	# incrementar temporizador
 	time += delta
 	
 	# dificuldade linear
