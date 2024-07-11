@@ -52,6 +52,9 @@ func die() -> void:
 	# drop
 	if randf() <= dropChance:
 		dropItem()
+
+	# incrementar contador
+	GameManager.monstersDefeatedCounter += 1
 	
 	# deletar obj
 	queue_free() # destruindo entidade

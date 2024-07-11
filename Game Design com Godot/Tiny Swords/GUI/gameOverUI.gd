@@ -6,14 +6,11 @@ extends CanvasLayer
 @onready var monstersLabel = %MonstersLabel
 
 @export var restartDelay: float = 5.0
-
 var restartCooldown: float
-var timeSurvived: String
-var monstersDefeated: int
 
 func _ready():
-	timeLabel.text = timeSurvived
-	monstersLabel.text = str(monstersDefeated)
+	timeLabel.text = GameManager.timeElapsedString
+	monstersLabel.text = str(GameManager.monstersDefeatedCounter)
 	restartCooldown = restartDelay
 
 func _process(delta):

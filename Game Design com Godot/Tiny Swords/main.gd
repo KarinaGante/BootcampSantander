@@ -14,6 +14,4 @@ func triggerGameOver():
 		
 	# criar game over UI
 	var gameOverUI: GameOverUI = gameOverUItemplate.instantiate()
-	gameOverUI.monstersDefeated = 999
-	gameOverUI.timeSurvived = "01:58"
 	add_child(gameOverUI)
