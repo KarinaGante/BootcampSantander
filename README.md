@@ -11,11 +11,11 @@
 
 ## 🗺️ Preview dos Projetos 🗺️
 
-⚔️ Tiny Swords: Estilo Vampire Survivor; Rotação de Sprite, Animated Sprites, Inimigos com IA, Sistema de Pontuação, Ataque, Vida, Câmera com outra Perspectiva.
+⚔️ Tiny Swords: Estilo Vampire Survivor, Rotação de Sprite, Animated Sprites, Inimigos com IA, Mob Sapawn, Mob Drops, Recuperação de Vida, Coleta de Item, Itens de Diferentes Raridades, Ataque, Barra de Progressão de Vida, Câmera Top-Down, Signals, Pixel-Art, Animação de Morte, GUI.
 
 <img src="./md-icons/prj-tinySwords.gif" width="620px"> <br>
 
-🏗️ Industrial Platformer: Câmera, Sprite2D, Câmera, Controles, Mapa, Camadas e Parallax.
+🏗️ Industrial Platformer: Sprite2D, Câmera, Controles, Mapa, Camadas e Parallax.
 
 <img src="./md-icons/prj-industrialPlatformer.gif" width="620px"> <br>
 
